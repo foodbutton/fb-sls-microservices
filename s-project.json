@@ -1,0 +1,20 @@
+{
+  "name": "fb-sls-microservices",
+  "version": "0.0.1",
+  "profile": "serverless-0",
+  "location": "https://github.com/...",
+  "author": "",
+  "description": "",
+  "domain": "sls.foodbutton.io",
+  "stages": {
+    "development": [
+      {
+        "region": "us-east-1",
+        "iamRoleArnLambda": "arn:aws:iam::501293600930:role/fb-sls-microservices-development-r-IamRoleLambda-S27FQFBA0CAK",
+        "regionBucket": "serverless.useast1.sls.foodbutton.io"
+      }
+    ]
+  },
+  "custom": {},
+  "plugins": []
+}
