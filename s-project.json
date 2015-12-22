@@ -11,7 +11,8 @@
       {
         "region": "us-east-1",
         "iamRoleArnLambda": "arn:aws:iam::501293600930:role/fb-sls-microservices-development-r-IamRoleLambda-S27FQFBA0CAK",
-        "regionBucket": "serverless.useast1.sls.foodbutton.io"
+        "regionBucket": "serverless.useast1.sls.foodbutton.io",
+        "restApiId": "990605ay4k"
       }
     ]
   },

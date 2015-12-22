@@ -160,6 +160,10 @@
           }
         ]
       }
+    },
+    "NewOrders": {
+      "Type": "AWS::SNS::Topic",
+      "Properties": {}
     }
   },
   "Outputs": {
