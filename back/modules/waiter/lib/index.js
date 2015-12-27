@@ -10,13 +10,17 @@ var sns = new AWS.SNS();
 var topic = process.env.NEW_ORDER_TOPIC;
 
 module.exports.respond = function(event, cb) {
-  
-  var payload = {
-    userId: 'USER_ID_HERE'
+  var order = {
+    NewOrder: {
+      userId: event.userId,
+      deliveryAddress: event.deliveryAddress,
+      stripeSource: event.stripeSource,
+      preferences: event.preferences
+    }
   }
   sns.publish({
     TopicArn: topic,
-    Message: JSON.stringify(payload)
+    Message: JSON.stringify(order)
   }, function(err, data) {
     if(err) {
       console.log(err.stack);
@@ -26,7 +30,7 @@ module.exports.respond = function(event, cb) {
     }
   });
 
-  console.log('Waiter took an order', payload);
+  console.log('Waiter took an order', order);
 
   return cb(null, payload);
 };

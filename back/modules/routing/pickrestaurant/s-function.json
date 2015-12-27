@@ -1,18 +1,18 @@
 {
   "functions": {
-    "orders": {
+    "pickrestaurant": {
       "custom": {
         "excludePatterns": [],
         "envVars": []
       },
-      "handler": "modules/waiter/orders/handler.handler",
+      "handler": "modules/routing/pickrestaurant/handler.handler",
       "timeout": 6,
       "memorySize": 1024,
       "eventSourceArn": "",
       "endpoints": [
         {
-          "path": "waiter/orders",
-          "method": "POST",
+          "path": "routing/pickrestaurant",
+          "method": "GET",
           "authorizationType": "none",
           "apiKeyRequired": false,
           "requestParameters": {},
@@ -20,6 +20,9 @@
             "application/json": ""
           },
           "responses": {
+            "400": {
+              "statusCode": "400"
+            },
             "default": {
               "statusCode": "200",
               "responseParameters": {},

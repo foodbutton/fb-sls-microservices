@@ -1,0 +1,8 @@
+{
+  "Customer": {
+    "Name": "Francis Famished",
+    "Email": "francis@example.com",
+    "IdentityId": "01234567789",
+    "StripeToken": "tok_90302930239"
+  }
+}
