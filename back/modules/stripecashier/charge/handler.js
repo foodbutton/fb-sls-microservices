@@ -14,8 +14,12 @@ var ServerlessHelpers = require('serverless-helpers-js').loadEnv();
 var lib = require('../lib');
 
 // Lambda Handler
-module.exports.handler = function(event, context) {
-  lib.takeOrder(event, function(error, response) {
+module.exports.charge = function(newOrder, context) {
+  if(newOrder.PaymentReceipt) {
+    return context.success();
+  }
+
+  lib.respond(event, function(error, response) {
     return context.done(error, response);
   });
 };

@@ -1,25 +1,28 @@
 {
   "functions": {
-    "orders": {
+    "charge": {
       "custom": {
         "excludePatterns": [],
         "envVars": []
       },
-      "handler": "modules/waiter/orders/handler.handler",
+      "handler": "modules/stripecashier/charge/handler.handler",
       "timeout": 6,
       "memorySize": 1024,
       "eventSourceArn": "",
       "endpoints": [
         {
-          "path": "waiter/orders",
-          "method": "POST",
+          "path": "stripecashier/charge",
+          "method": "GET",
           "authorizationType": "none",
           "apiKeyRequired": false,
           "requestParameters": {},
           "requestTemplates": {
-            "application/json": "\"requestId\" : \"$context.requestId\", \"body\" : $input.json('$'), \"identityId\" : \"$context.identity.cognitoIdentityId\""
+            "application/json": ""
           },
           "responses": {
+            "400": {
+              "statusCode": "400"
+            },
             "default": {
               "statusCode": "200",
               "responseParameters": {},

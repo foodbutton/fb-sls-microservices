@@ -2,14 +2,14 @@
  * Lib
  */
 var AWS = require('aws-sdk');
-
-// todo: not sure why I need to do this here
 AWS.config.update({region:'us-east-1'});
 
-var sns = new AWS.SNS();
-var topic = process.env.NEW_ORDER_TOPIC;
+var Saws = new require('saws')(AWS);
+Saws.stage = process.env.SERVERLESS_STAGE;
 
-module.exports.respond = function(event, cb) {
+var topic = new Saws.Topic("NewOrders");
+
+module.exports.takeOrder = function(event, cb) {
   var order = {
     NewOrder: {
       userId: event.userId,
@@ -18,19 +18,5 @@ module.exports.respond = function(event, cb) {
       preferences: event.preferences
     }
   }
-  sns.publish({
-    TopicArn: topic,
-    Message: JSON.stringify(order)
-  }, function(err, data) {
-    if(err) {
-      console.log(err.stack);
-    }
-    else {
-      console.log(data);
-    }
-  });
-
-  console.log('Waiter took an order', order);
-
-  return cb(null, payload);
+  topic.publish(order, cb);
 };

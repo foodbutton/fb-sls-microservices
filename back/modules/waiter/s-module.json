@@ -9,10 +9,6 @@
   "cloudFormation": {
     "lambdaIamPolicyDocumentStatements": [],
     "resources": {
-      "NewOrders": {
-            "Type": "AWS::SNS::Topic",
-            "Properties": {}
-          }
     }
   },
   "runtime": "nodejs"

@@ -164,7 +164,23 @@
     "NewOrders": {
       "Type": "AWS::SNS::Topic",
       "Properties": {}
-    }
+    },
+    "StripeCashierCustomers": {
+        "Type": "AWS::DynamoDB::Table",
+        "Properties": {
+          "TableName": "StripeCashierCustomers",
+          "KeySchema": [
+            {
+              "AttributeName": "IdentityId",
+              "KeyType": "HASH"
+            },
+            {
+              "AttributeName": "StripeCustomerId",
+              "KeyType": "RANGE"
+            }
+          ]
+        }
+      }
   },
   "Outputs": {
     "IamRoleArnLambda": {

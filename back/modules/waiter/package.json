@@ -13,6 +13,7 @@
   "devDependencies": {},
   "dependencies": {
     "aws-sdk": "^2.2.26",
+    "chainsaws": "0.0.4",
     "serverless-helpers-js": "~0.0.3"
   }
 }

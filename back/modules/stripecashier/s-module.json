@@ -9,22 +9,6 @@
   "cloudFormation": {
     "lambdaIamPolicyDocumentStatements": [],
     "resources": {
-      "StripeCashierCustomers": {
-        "Type": "AWS::DynamoDB::Table",
-        "Properties": {
-          "TableName": "StripeCashierCustomers",
-          "KeySchema": [
-            {
-              "AttributeName": "IdentityId",
-              "KeyType": "HASH"
-            },
-            {
-              "AttributeName": "StripeCustomerId",
-              "KeyType": "RANGE"
-            }
-          ]
-        }
-      }
     }
   },
   "runtime": "nodejs"
