@@ -11,10 +11,11 @@ var topic = new Saws.Topic("NewOrders");
 
 module.exports.takeOrder = function(event, cb) {
   var order = {
-    IdentityId: event.IdentityId,
-    DeliveryAddress: event.DeliveryAddress,
-    StripeSource: event.StripeSource,
-    Preferences: event.Preferences
+    RequestId: event.requestId,
+    IdentityId: event.body.IdentityId,
+    DeliveryAddress: event.body.DeliveryAddress,
+    StripeSource: event.body.StripeSource,
+    Preferences: event.body.Preferences
   }
   topic.publish(order, cb);
 };

@@ -17,7 +17,7 @@
           "apiKeyRequired": false,
           "requestParameters": {},
           "requestTemplates": {
-            "application/json": "\"requestId\" : \"$context.requestId\", \"body\" : $input.json('$'), \"identityId\" : \"$context.identity.cognitoIdentityId\""
+            "application/json": "\"requestId\" : \"$context.requestId\", \"body\" : $input.json('$')"
           },
           "responses": {
             "default": {
